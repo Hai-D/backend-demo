@@ -1,12 +1,16 @@
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  name: demofeng
+
 jobs:
-- job: Build
-  pool:
-    vmImage: 'ubuntu-latest'  # 也可以用 'windows-latest'
+- job: TestJob
+  displayName: '测试自建 Agent 的流水线'
   steps:
-  - task: Maven@4
-    inputs:
-      mavenPomFile: 'pom.xml'
-      goals: 'clean package'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.9'  # 这里可以选择 JDK 版本
-      mavenVersionOption: 'Default'
+  - script: |
+      echo "Hello, this is my self-hosted agent running the pipeline!"
+      echo "当前时间: $(date)"
+    displayName: '执行测试脚本'
