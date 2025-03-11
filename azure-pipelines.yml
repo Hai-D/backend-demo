@@ -1,12 +1,12 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
-trigger:
-- master
-
-pool:
-  name: Demo
-steps:
-  - script: echo "Hello from self-hosted agent!"
+jobs:
+- job: Build
+  pool:
+    vmImage: 'ubuntu-latest'  # 也可以用 'windows-latest'
+  steps:
+  - task: Maven@4
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean package'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.9'  # 这里可以选择 JDK 版本
+      mavenVersionOption: 'Default'
