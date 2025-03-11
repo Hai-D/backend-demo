@@ -8,7 +8,5 @@ trigger:
 
 pool:
   name: Demo
-  
-
 steps:
   - script: echo "Hello from self-hosted agent!"
