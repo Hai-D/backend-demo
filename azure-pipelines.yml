@@ -5,6 +5,7 @@ trigger:
 
 pool:
   name: demofeng
+  demands: Agent.Name -equals localhost
 
 jobs:
 - job: TestJob
