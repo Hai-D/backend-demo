@@ -8,24 +8,21 @@ pool:
   demands:
     - Agent.Name -equals localhost
 
-# stages:
-# - stage: Build
-#   displayName: 'Build Stage'
-#   jobs:
-#   - job: buildPackage
-#     timeoutInMinutes: 4320 # job times out in 3 days
-#     displayName: 'Deploy to Staging Job'
-#     steps:
-#     - task: Maven@4
-#       inputs:
-#         mavenPomFile: 'pom.xml'
-#         goals: clean package
-#         publishJUnitResults: true
-#         testResultsFiles: '**/surefire-reports/TEST-*.xml'
-#         mavenVersionOption: 'Default'
-#         mavenAuthenticateFeed: false
-#         effectivePomSkip: false
-#         sonarQubeRunAnalysis: false
-steps:
-  - script: 
-     mvn -version
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: buildPackage
+    timeoutInMinutes: 4320 # job times out in 3 days
+    displayName: 'Deploy to Staging Job'
+    steps:
+    - task: Maven@4
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: clean package
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
