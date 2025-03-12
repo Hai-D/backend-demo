@@ -8,11 +8,22 @@ pool:
   demands:
     - Agent.Name -equals localhost
 
-jobs:
-- job: TestJob
-  displayName: '测试自建 Agent 的流水线'
-  steps:
-  - script: |
-      echo "Hello, this is my self-hosted agent running the pipeline!"
-      echo "当前时间: $(date)"
-    displayName: '执行测试脚本'
+
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: buildPackage
+    timeoutInMinutes: 4320 # job times out in 3 days
+    displayName: 'Deploy to Staging Job'
+    steps:
+    - task: Maven@4
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: clean package
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
