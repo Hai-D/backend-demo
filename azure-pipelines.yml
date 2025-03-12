@@ -5,7 +5,8 @@ trigger:
 
 pool:
   name: demofeng
-
+  demands:
+    - Agent.Name -equals localhost
 
 stages:
 - stage: Build
