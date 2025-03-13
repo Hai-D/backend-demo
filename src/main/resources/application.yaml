@@ -4,5 +4,5 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://172.16.125.128:27017/daily-report
+      uri: mongodb://mongodb-service:27017/daily-report
       database: daily-report
