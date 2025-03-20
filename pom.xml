@@ -51,15 +51,16 @@
  <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>21</source> <!-- 根据你的 JDK 版本进行调整 -->
+                    <target>21</target> <!-- 根据你的 JDK 版本进行调整 -->
+                    <compilerArgs>
+                        <arg>-parameters</arg> <!-- 启用 -parameters 标志 -->
+                    </compilerArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>
