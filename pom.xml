@@ -4,15 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 使用 Spring Boot 提供的父级 POM -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.2</version> <!-- 使用您项目所需的版本 -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>org.example</groupId>
     <artifactId>Demo-P</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>21</java.version> <!-- 根据您的 JDK 版本进行调整 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>3.2.2</spring-boot.version>
     </properties>
 
     <dependencies>
@@ -20,18 +26,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
         <!-- MongoDB -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
-
-         <!-- Jakarta Servlet API -->
+        <!-- Jakarta Servlet API -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -48,18 +51,15 @@
         </dependency>
     </dependencies>
 
- <build>
+    <build>
         <plugins>
+            <!-- 使用 Spring Boot Maven 插件 -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.2</version> <!-- 使用您项目所需的版本 -->
                 <configuration>
-                    <source>21</source> <!-- 根据你的 JDK 版本进行调整 -->
-                    <target>21</target> <!-- 根据你的 JDK 版本进行调整 -->
-                    <compilerArgs>
-                        <arg>-parameters</arg> <!-- 启用 -parameters 标志 -->
-                    </compilerArgs>
+                    <mainClass>com.example.dailyreport.DailyReportApplication</mainClass> <!-- 替换为您的主类路径 -->
                 </configuration>
             </plugin>
         </plugins>
