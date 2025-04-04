@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     private static final Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
-   @Override
+    @Override
     public void addCorsMappings(CorsRegistry registry) {
         logger.info("Adding CORS mappings...");
         registry.addMapping("/**")
@@ -20,4 +20,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);
+    }
+
 }
