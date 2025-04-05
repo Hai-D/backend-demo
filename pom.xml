@@ -6,9 +6,9 @@
 
     <properties>
         <java.version>21</java.version>
-<!--        <maven.compiler.source>21</maven.compiler.source>-->
-<!--        <maven.compiler.target>21</maven.compiler.target>-->
-<!--        <maven.compiler.release>21</maven.compiler.release>-->
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -66,17 +66,17 @@
                     <mainClass>com.example.dailyreport.DailyReportApplication</mainClass> <!-- 替换为您的主类路径 -->
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.13.0</version> &lt;!&ndash; 或更新版本，如3.13.0 &ndash;&gt;-->
-<!--                <configuration>-->
-<!--                    <source>21</source>-->
-<!--                    <target>21</target>-->
-<!--                    &lt;!&ndash; 如果使用`release`参数（Java 9+） &ndash;&gt;-->
-<!--                    <release>21</release>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version> <!-- 或更新版本，如3.13.0 -->
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <!-- 如果使用`release`参数（Java 9+） -->
+                    <release>21</release>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
