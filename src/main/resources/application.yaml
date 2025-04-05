@@ -4,5 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://172.16.125.128:27017/daily-report
+      uri: mongodb://mongodb-service:27017/daily-report
+      #uri: mongodb://172.16.125.128:27017/daily-report
+      #uri: mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.4.2/daily-report
       database: daily-report
