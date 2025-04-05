@@ -19,7 +19,7 @@ stages:
     - task: Maven@4
       inputs:
         mavenPomFile: 'pom.xml'
-        goals: clean package
+        goals: clean package -U
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         mavenVersionOption: 'Default'
