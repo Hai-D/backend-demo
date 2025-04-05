@@ -4,6 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <!-- 使用 Spring Boot 提供的父级 POM -->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -16,10 +21,6 @@
     <artifactId>Demo-P</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <java.version>21</java.version> <!-- 根据您的 JDK 版本进行调整 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <!-- Spring Boot Web -->
@@ -60,6 +61,15 @@
                 <version>3.2.2</version> <!-- 使用您项目所需的版本 -->
                 <configuration>
                     <mainClass>com.example.dailyreport.DailyReportApplication</mainClass> <!-- 替换为您的主类路径 -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
         </plugins>
